@@ -2,19 +2,10 @@
   display: none !important;
 }
 
-header {
-  margin-top: 0;
-}
-
 .container {
   max-width: 575px;
   margin: 0;
   padding: 0 1.5rem;
-  background-color: rgb(76, 36, 116);
-}
-
-h1 {
-  color: white;
 }
 
 .row {

@@ -13,8 +13,6 @@ h1 {
 
 .row {
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -41,8 +39,8 @@ textarea {
 button {
   color: white;
   background-color: rgb(76, 36, 116);
-}
-
-label {
-  padding: 5% 0;
+  text-align: right;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
 }

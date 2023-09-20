@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Journal</title>
     <link rel="icon" href="images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&family=Inclusive+Sans&family=Mooli&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;400&display=swap"
+      rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -15,14 +24,69 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
     <header>
-      <div class="container"></div>
+      <div class="container">
+        <div class="row">
+          <div class="column-full">
+            <h1>Code Journal</h1>
+          </div>
+        </div>
+      </div>
     </header>
     <main class="container">
-      <div data-view="entry-form"></div>
-      <div data-view="entries" class="hidden"></div>
+      <div data-view="entry-form">
+        <form id="entry-form">
+          <div class="row">
+            <div class="column-full">
+              <h2>New Entry</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <img
+                id="entry-image"
+                src="./images/placeholder-image-square.jpg"
+                alt="Place holder photo" />
+            </div>
+            <div class="column-half">
+              <label for="title-input">Title</label>
+              <input
+                required
+                autofocus
+                type="text"
+                name="title-input"
+                id="title-input" />
+              <label for="photo-url-input">Photo URL</label>
+              <input
+                required
+                autofocus
+                type="text"
+                name="photo-url-input"
+                id="photo-url-input" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes-text">Notes</label
+              ><textarea
+                required
+                autofocus
+                name="notes"
+                rows="10"
+                id="notes-text"></textarea>
+            </div>
+          </div>
+          <div class="button-row">
+            <div class="button-container">
+              <button type="submit" id="submit-button">SAVE</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>

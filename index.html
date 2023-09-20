@@ -38,31 +38,20 @@
           <div class="column-half">
             <img src="./images/placeholder-image-square.jpg" />
           </div>
-        </div>
-        <div class="row">
           <div class="column-half">
-            <label for="title">Title</label><br />
-            <input required type="text" id="title" /><br />
-          </div>
-        </div>
-        <div class="row">
-          <div class="column-half">
-            <label for="photo-url">Photo URL</label><br />
+            <label for="title">Title</label>
+            <input required type="text" id="title" />
+            <label for="photo-url">Photo URL</label>
             <input required type="text" name="photo-url" id="photo-url" />
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="column-full">
-          <label for="notes">Notes</label><textarea id="notes"></textarea>
-        </div>
         <div class="row">
           <div class="column-full">
-            <div class="form-actions">
-              <button type="submit">SAVE</button>
-            </div>
+            <label for="notes">Notes</label
+            ><textarea required rows="10" id="notes"></textarea>
           </div>
         </div>
+        <div class="button-container"><button type="submit">SAVE</button></div>
       </div>
     </main>
     <script src="js/data.js"></script>

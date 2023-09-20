@@ -18,6 +18,16 @@
   width: 100%;
 }
 
+label {
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: small;
+}
+
+input {
+  margin: 20px 0;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -30,5 +40,9 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .button-container {
+    padding: 0 0.75rem;
   }
 }

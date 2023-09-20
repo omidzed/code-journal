@@ -13,24 +13,28 @@ img {
 
 textarea {
   width: 100%;
-  margin: 0;
+  margin: 20px 0;
+  border: 1px solid rgb(215, 214, 214);
+  border-radius: 4px;
 }
 
 input {
-  max-width: 100%;
-  margin: 0;
+  width: 100%;
+  margin: 20px 0;
+  border: 1px solid rgb(215, 214, 214);
+  border-radius: 4px;
 }
 
-/* button {
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
   color: white;
   background-color: rgb(76, 36, 116);
-  text-align: right;
-  display: block;
-  margin-left: auto;
-  margin-right: 0;
-} */
+}
 
-/* body {
+body {
   background-color: rgb(238, 238, 238);
-  max-width: 100%;
-} */
+}

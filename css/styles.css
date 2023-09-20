@@ -4,11 +4,13 @@ header {
 
 h1 {
   color: white;
+  font-weight: 100;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   background-color: rgb(225, 225, 225);
+  border-radius: 5px;
 }
 
 textarea {
@@ -39,8 +41,12 @@ button {
   color: white;
   background-color: rgb(76, 36, 116);
   margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px 15px;
 }
 
 body {
-  background-color: rgb(238, 238, 238);
+  font-family: Roboto, serif;
+  font-weight: 100;
+  background-color: rgb(240, 240, 240);
 }

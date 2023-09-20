@@ -19,5 +19,5 @@ $entryForm.addEventListener('submit', function (event) {
   data.entries.unshift(entry);
   data.nextEntryId++;
   $entryForm.reset();
-  $entryImage.src = 'http://localhost:5500/images/placeholder-image-square.jpg';
+  $entryImage.src = './images/placeholder-image-square.jpg';
 });

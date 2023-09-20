@@ -18,12 +18,6 @@
   width: 100%;
 }
 
-label {
-  margin-bottom: 40px;
-  font-weight: bold;
-  font-size: small;
-}
-
 input {
   margin: 20px 0;
 }

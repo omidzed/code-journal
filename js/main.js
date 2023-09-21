@@ -21,3 +21,11 @@ $entryForm.addEventListener('submit', function (event) {
   $entryForm.reset();
   $entryImage.src = './images/placeholder-image-square.jpg';
 });
+
+function renderEntry(entry) {
+  const $entry = document.createElement('li');
+  $entry.setAttribute('class', 'entry1');
+  return $entry;
+}
+
+renderEntry();

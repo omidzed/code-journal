@@ -13,6 +13,21 @@
   flex-wrap: wrap;
 }
 
+ul {
+  width: 100%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .column-full,
 .column-half {
   width: 100%;

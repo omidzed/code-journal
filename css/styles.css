@@ -7,7 +7,17 @@ h1 {
   font-weight: 100;
 }
 
-img {
+h2 {
+  color: black;
+  font-size: 30px;
+}
+
+p {
+  color: black;
+  font-size: 20px;
+}
+
+.photos {
   width: 100%;
   background-color: rgb(225, 225, 225);
   border-radius: 5px;
@@ -48,7 +58,6 @@ button {
 
 body {
   font-family: Roboto, serif;
-  font-weight: 100;
   background-color: rgb(240, 240, 240);
 }
 
@@ -56,4 +65,8 @@ label {
   margin-bottom: 40px;
   font-weight: bold;
   font-size: 15px;
+}
+
+div[data-view='entry-form'] {
+  /* Your styles here */
 }

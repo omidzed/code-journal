@@ -4,7 +4,8 @@ header {
 
 h1 {
   color: white;
-  font-weight: 100;
+  font-size: 35px;
+  font-weight: 400;
 }
 
 h2 {
@@ -69,6 +70,12 @@ label {
   font-size: 15px;
 }
 
-.hidden {
-  display: none;
+.entries-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  color: white;
+  font-size: 80%;
 }

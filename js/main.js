@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
+// eslint-disable-next-line no-unused-vars
 function toggleNoEntries() {
   const $noEntriesView = document.querySelector('div[data-view="no-entries"]');
   if (data.entries.length !== 0) {
@@ -72,15 +73,18 @@ function toggleNoEntries() {
   }
 }
 
-const $entryFormView = document.querySelector('div[data-view="entry-form"]');
+const $views = document.querySelectorAll('[data-view]');
 // eslint-disable-next-line no-unused-vars
-const $entriesView = document.querySelector('div[data-view="entries"]');
+// const $entriesView = document.querySelector('div[data-view="entries"]');
 // eslint-disable-next-line no-unused-vars
 function viewSwap(view) {
-  if (view === 'entry-form') {
-    $entryFormView.setAttribute('class', 'view');
-  } else {
-    toggleNoEntries();
+  data.view = view;
+  for (let i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') === view) {
+      $views[i].classList.remove('hidden');
+    } else {
+      $views[i].classList.add('hidden');
+    }
   }
 }
 
@@ -100,3 +104,18 @@ function viewSwap(view) {
 
 //   }
 // });
+// Existing viewSwap function
+
+// Add an event handler function for showing entries view
+function handleEntriesClick() {
+  viewSwap('entries'); // 'entries' is the view name, you can change it based on your needs
+}
+function handleEntryFormClick() {
+  viewSwap('entry-form');
+}
+
+// Get the anchor element using its id and attach the click event
+const $entriesLink = document.querySelector('.entries');
+$entriesLink.addEventListener('click', handleEntriesClick);
+const $entryFormLink = document.querySelector('.entry-form');
+$entryFormLink.addEventListener('click', handleEntryFormClick);

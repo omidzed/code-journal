@@ -30,7 +30,12 @@
       <div class="container">
         <div class="row">
           <div class="column-full">
-            <h1>Code Journal</h1>
+            <h1>
+              Code Journal
+              <a href="#" class="no-underline entries" id="entries-id"
+                >Entries</a
+              >
+            </h1>
           </div>
         </div>
       </div>
@@ -86,22 +91,17 @@
           </div>
         </form>
       </div>
-      <header>
-        <div class="container">
-          <div class="row">
-            <div class="column-full">
-              <h1>Code Journal <a href="#">Entries</a></h1>
+
+      <div class="view hidden" data-view="entries">
+        <div class="container" id="entries-container">
+          <div class="entries-row">
+            <div class="column-half"><h2>Entries</h2></div>
+            <div class="column-half">
+              <div class="new-button">
+                <a href="#" class="no-underline entry-form" id="new">NEW</a>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
-      <div class="container" id="entries-container">
-        <div class="entries-row">
-          <h2>Entries</h2>
-          <button>NEW</button>
-        </div>
-
-        <div class="view hidden" data-view="entries">
           <ul class="entries-list"></ul>
         </div>
         <div class="view hidden" data-view="no-entries">

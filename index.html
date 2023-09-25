@@ -27,7 +27,7 @@
 
   <body>
     <header>
-      <div class="container">
+      <div class="header-container">
         <div class="row">
           <div class="column-full">
             <h1>
@@ -40,12 +40,12 @@
         </div>
       </div>
     </header>
-    <main class="container">
-      <div class="view hidden" data-view="entry-form">
+    <main class="main-container">
+      <div class="view" data-view="entry-form">
         <form id="entry-form">
           <div class="row">
             <div class="column-full">
-              <h2>New Entry</h2>
+              <h2 class="new-entry">New Entry</h2>
             </div>
           </div>
           <div class="row">
@@ -97,8 +97,9 @@
           <div class="entries-row">
             <div class="column-half"><h2>Entries</h2></div>
             <div class="column-half">
-              <div class="new-button">
-                <a href="#" class="no-underline entry-form" id="new">NEW</a>
+              <div class="new-button entry-form">
+                <button class="new-button">NEW</button>
+                <!-- <h3><a href="#" class="no-underline entry-form" id="new">NEW</a></h3> -->
               </div>
             </div>
           </div>

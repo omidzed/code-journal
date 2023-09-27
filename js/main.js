@@ -67,15 +67,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-const $views = document.querySelectorAll('[data-view]');
+const $view = document.querySelectorAll('[data-view]');
 
 function viewSwap(view) {
-  for (let i = 0; i < $views.length; i++) {
-    $views[i] = view;
-    if ($views[i].getAttribute('data-view') === view) {
-      $views[i].classList.remove('hidden');
+  for (let i = 0; i < $view.length; i++) {
+    $view[i] = view;
+    if ($view[i].getAttribute('data-view') === view) {
+      $view[i].classList.remove('hidden');
     } else {
-      $views[i].classList.add('hidden');
+      $view[i].classList.add('hidden');
     }
   }
 }

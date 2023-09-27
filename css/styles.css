@@ -35,17 +35,19 @@ li {
 }
 
 .new-button {
-  display: flex;
-  justify-content: flex-end;
+  background-color: purple;
+  color: white;
   font-size: 1rem;
-  border-radius: 0.5rem;
-  max-width: 100%;
-  margin: 1.5rem 0;
+  border-radius: 0.1rem;
+  max-width: 100px;
+  padding: 0.8rem;
+  text-decoration: none;
 }
 
 .entries-row {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 p {

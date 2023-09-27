@@ -1,5 +1,5 @@
 let data = {
-  view: ['entry-form', 'entries', 'no-entries'],
+  view: 'entry-form',
   entries: [],
   editing: null,
   nextEntryId: 1,

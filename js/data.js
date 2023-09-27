@@ -1,6 +1,6 @@
 let data = {
-  // view: 'entry-form',/*data.view is only here to remember the last view the user was in*/
-  // entries: [],
+  view: 'entry-form',
+  entries: [],
   editing: null,
   nextEntryId: 1,
 };

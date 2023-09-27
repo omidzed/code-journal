@@ -57,31 +57,28 @@ function renderEntry(entry) {
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  if (data.entries.length === 0) {
-    toggleNoEntries();
-  } else {
-    for (let i = 0; i < data.entries.length; i++) {
-      const entryItem = renderEntry(data.entries[i]);
-      $entriesList.appendChild(entryItem);
-    }
+  toggleNoEntries();
+  for (let i = 0; i < data.entries.length; i++) {
+    const entryItem = renderEntry(data.entries[i]);
+    $entriesList.appendChild(entryItem);
   }
 });
 
-const $view = document.querySelectorAll('[data-view]');
+const view = document.querySelector('[data-view]');
 
 function viewSwap(view) {
-  for (let i = 0; i < $view.length; i++) {
-    $view[i] = view;
-    if ($view[i].getAttribute('data-view') === view) {
-      $view[i].classList.remove('hidden');
-    } else {
-      $view[i].classList.add('hidden');
-    }
+  view = data.view;
+  if (view.getAttribute('data-view') === 'entries') {
+    view.classList.remove('hidden');
+  } else {
+    view.classList.add('hidden');
   }
 }
 
 function toggleNoEntries() {
-  if (data.entries.length === 0) viewSwap('no-entries');
+  if (data.entries.length === 0) {
+    view.classList.add('hidden');
+  }
 }
 function handleEntriesClick() {
   viewSwap('entries');

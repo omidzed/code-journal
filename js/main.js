@@ -81,7 +81,7 @@ function viewSwap(view) {
 }
 
 function toggleNoEntries() {
-  viewSwap('no-entries');
+  if (data.entries.length === 0) viewSwap('no-entries');
 }
 function handleEntriesClick() {
   viewSwap('entries');

@@ -28,18 +28,18 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-container container">
-        <div class="row app-name">
-          <h1>Code Journal</h1>
-          <a href="#" class="no-underline entries" id="entries-id">Entries</a>
-        </div>
-      </div>
-    </header>
     <main class="main-container">
+      <header>
+        <div class="header-container container">
+          <div class="row app-name">
+            <h1>Code Journal</h1>
+            <a href="#" class="no-underline entries" id="entries-id">Entries</a>
+          </div>
+        </div>
+      </header>
       <div class="container view" data-view="entry-form">
         <form id="entry-form">
-          <div class="row">
+          <div class="row" id="new-entry-row">
             <div class="column-full">
               <h2>New Entry</h2>
             </div>
@@ -76,13 +76,13 @@
                 required
                 autofocus
                 name="notes"
-                rows="10"
+                rows="5"
                 id="notes-text"></textarea>
             </div>
           </div>
           <div class="button-row">
             <div class="button-container">
-              <button type="submit" id="submit-button">SAVE</button>
+              <button class="save-button" type="submit">SAVE</button>
             </div>
           </div>
         </form>

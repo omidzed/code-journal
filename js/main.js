@@ -20,8 +20,9 @@ $entryForm.addEventListener('submit', function (event) {
   data.entries.unshift(entry);
   data.nextEntryId++;
   $entryImage.src = './images/placeholder-image-square.jpg';
-  toggleNoEntries();
   $entryForm.reset();
+  toggleNoEntries();
+  viewSwap('entries');
 });
 
 function renderEntry(entry) {

@@ -1,16 +1,93 @@
 header {
   background-color: rgb(76, 36, 116);
+  justify-content: flex-start;
+}
+
+.header-container {
+  flex-wrap: nowrap;
+}
+
+.app-name {
+  align-items: left;
+}
+
+#entries-id {
+  font-size: 1.7rem;
+  padding: 1.5rem;
+  margin: 0 1rem;
+  font-weight: 300;
 }
 
 h1 {
   color: white;
-  font-weight: 100;
+  font-size: 2.1rem;
+  font-weight: 400;
 }
 
-img {
+h2 {
+  color: black;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h3 {
+  color: black;
+  font-size: 1.5rem;
+}
+
+ul {
+  width: 100%;
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.new-button {
+  background-color: rgb(76, 36, 116);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 80px;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.save-button {
+  background-color: rgb(76, 36, 116);
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 70px;
+  text-align: center;
+  padding: 0.3rem;
+}
+
+.entries-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  color: black;
+  font-size: 1rem;
+}
+
+#new-entry-row {
+  margin: 0;
+}
+
+.photo {
   width: 100%;
   background-color: rgb(225, 225, 225);
   border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
 textarea {
@@ -22,7 +99,7 @@ textarea {
 
 input {
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 0;
   border: 1px solid rgb(215, 214, 214);
   border-radius: 5px;
   line-height: 30px;
@@ -31,29 +108,25 @@ input {
 .button-container {
   display: flex;
   justify-content: flex-end;
-}
-
-.button-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-button {
-  color: white;
-  background-color: rgb(76, 36, 116);
-  margin-bottom: 10px;
-  border-radius: 5px;
-  padding: 5px 15px;
+  padding: 0 0.75rem;
 }
 
 body {
-  font-family: Roboto, serif;
-  font-weight: 100;
+  font-family: 'Fira Sans', serif;
   background-color: rgb(240, 240, 240);
 }
 
 label {
-  margin-bottom: 40px;
+  margin-bottom: 0.2rem;
   font-weight: bold;
   font-size: 15px;
+}
+
+a {
+  color: white;
+  font-size: 70%;
+}
+
+.no-underline {
+  text-decoration: none;
 }

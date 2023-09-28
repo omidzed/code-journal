@@ -61,11 +61,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
     const entryItem = renderEntry(data.entries[i]);
     $entriesList.appendChild(entryItem);
   }
+  viewSwap(data.view);
   toggleNoEntries();
 });
 
+const views = document.querySelectorAll('.container.view');
+
 function viewSwap(targetView) {
-  const views = document.querySelectorAll('.container.view');
   for (let i = 0; i < views.length; i++) {
     const viewElement = views[i];
     if (viewElement.getAttribute('data-view') === targetView) {

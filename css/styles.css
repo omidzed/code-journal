@@ -3,8 +3,14 @@ header {
   justify-content: flex-start;
 }
 
-.header-container {
-  flex-wrap: nowrap;
+#app-header-column-half {
+  display: flex;
+  align-items: center;
+}
+
+#row-app-name {
+  display: flex;
+  align-items: end;
 }
 
 .app-name {
@@ -18,21 +24,27 @@ header {
   font-weight: 300;
 }
 
+.entries-list {
+  padding: 0;
+}
+
 h1 {
   color: white;
   font-size: 2.1rem;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 h2 {
   color: black;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 500;
 }
 
 h3 {
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 400;
 }
 
 ul {
@@ -61,14 +73,14 @@ li {
 .save-button {
   background-color: rgb(76, 36, 116);
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border-radius: 5px;
-  width: 70px;
+  width: 90px;
   text-align: center;
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 
-.entries-row {
+#entries-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,13 +91,21 @@ p {
   font-size: 1rem;
 }
 
+#no-entries-text {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  max-width: 500px;
+  margin-top: 75px;
+}
+
 #new-entry-row {
   margin: 0;
 }
 
 .photo {
   width: 100%;
-  background-color: rgb(225, 225, 225);
   border-radius: 5px;
   margin-bottom: 1rem;
 }
@@ -105,12 +125,6 @@ input {
   line-height: 30px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 0.75rem;
-}
-
 body {
   font-family: 'Fira Sans', serif;
   background-color: rgb(240, 240, 240);
@@ -125,6 +139,22 @@ label {
 a {
   color: white;
   font-size: 70%;
+}
+
+i {
+  color: rgb(76, 36, 116);
+  font-size: 1.2rem;
+}
+
+.labels-edit-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-title-edit-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .no-underline {

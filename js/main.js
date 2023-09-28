@@ -28,9 +28,10 @@ $entryForm.addEventListener('submit', function (event) {
 function renderEntry(entry) {
   const $entry = document.createElement('li');
   $entry.setAttribute('class', 'entry');
+  $entry.setAttribute('data-entry-id', 'data.entries[i]entryId');
 
-  const $firstColumnHalf = document.createElement('div');
-  $firstColumnHalf.setAttribute('class', 'column-half');
+  const $columnHalf = document.createElement('div');
+  $columnHalf.setAttribute('class', 'column-half');
 
   const $entryImage = document.createElement('img');
   $entryImage.setAttribute('class', 'photo');
@@ -39,20 +40,33 @@ function renderEntry(entry) {
 
   const $secondColumnHalf = document.createElement('div');
   $secondColumnHalf.setAttribute('class', 'column-half');
+  $secondColumnHalf.setAttribute('id', 'labels-edit-icons');
+
+  const $rowTop = document.createElement('div');
+  $rowTop.setAttribute('class', 'row-title-edit-button');
 
   const $title = document.createElement('h3');
   $title.setAttribute('class', 'entry-title');
   $title.innerText = entry.title;
 
+  const $editButton = document.createElement('i');
+  $editButton.setAttribute('class', 'fa-solid fa-pen');
+
+  const $rowBottom = document.createElement('div');
+  $rowBottom.setAttribute('class', 'row-paragraph');
+
   const $paragraph = document.createElement('p');
   $paragraph.setAttribute('class', 'entry-notes');
   $paragraph.innerText = entry.notes;
 
-  $entry.appendChild($firstColumnHalf);
-  $firstColumnHalf.appendChild($entryImage);
+  $entry.appendChild($columnHalf);
+  $columnHalf.appendChild($entryImage);
   $entry.appendChild($secondColumnHalf);
-  $secondColumnHalf.appendChild($title);
-  $secondColumnHalf.appendChild($paragraph);
+  $secondColumnHalf.appendChild($rowTop);
+  $rowTop.appendChild($title);
+  $rowTop.appendChild($editButton);
+  $secondColumnHalf.appendChild($rowBottom);
+  $rowBottom.appendChild($paragraph);
 
   return $entry;
 }
@@ -102,3 +116,6 @@ const $entriesLink = document.querySelector('.entries');
 $entriesLink.addEventListener('click', handleEntriesClick);
 const $newEntryForm = document.querySelector('.entry-form');
 $newEntryForm.addEventListener('click', handleEntryFormClick);
+
+// console.log(data.entries[1]);
+// console.log('entry', data.entries)

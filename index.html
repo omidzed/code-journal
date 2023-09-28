@@ -31,18 +31,20 @@
     <main class="main-container">
       <header>
         <div class="header-container container">
-          <div class="row app-name">
-            <h1>Code Journal</h1>
-            <a href="#" class="no-underline entries" id="entries-id">Entries</a>
+          <div class="row" id="row-app-name">
+            <div class="column-half" id="app-header-column-half">
+              <h1>Code Journal</h1>
+              <a href="#" class="no-underline entries" id="entries-id"
+                >Entries</a
+              >
+            </div>
           </div>
         </div>
       </header>
       <div class="container view" data-view="entry-form">
         <form id="entry-form">
           <div class="row" id="new-entry-row">
-            <div class="column-full">
-              <h2>New Entry</h2>
-            </div>
+            <div class="column-half"><h2>New Entry</h2></div>
           </div>
           <div class="row">
             <div class="column-half">
@@ -53,14 +55,19 @@
                 class="photo" />
             </div>
             <div class="column-half">
-              <label for="title-input">Title</label>
+              <div class="labels-edit-icons">
+                <label for="title-input">Title</label>
+              </div>
+
               <input
                 required
                 autofocus
                 type="text"
                 name="title-input"
                 id="title-input" />
-              <label for="photo-url-input">Photo URL</label>
+              <div class="labels-edit-icons">
+                <label for="photo-url-input">Photo URL</label>
+              </div>
               <input
                 required
                 autofocus
@@ -71,30 +78,31 @@
           </div>
           <div class="row">
             <div class="column-full">
-              <label for="notes-text">Notes</label
-              ><textarea
+              <div class="labels-edit-icons">
+                <label for="notes-text">Notes</label>
+              </div>
+              <textarea
                 required
                 autofocus
                 name="notes"
-                rows="5"
+                rows="10"
                 id="notes-text"></textarea>
             </div>
           </div>
           <div class="button-row">
-            <div class="button-container">
-              <button class="save-button" type="submit">SAVE</button>
-            </div>
+            <button class="save-button" type="submit">SAVE</button>
           </div>
         </form>
       </div>
 
       <div class="container view hidden" data-view="entries">
+        <p id="no-entries-text">No entries have been recorded.</p>
         <div id="entries-container">
-          <p id="no-entries-text">No entries have been recorded yet.</p>
-
           <div class="entries-row">
-            <h2 id="entries-heading">Entries</h2>
-            <a class="new-button entry-form" href="#">NEW</a>
+            <div class="column-full" id="entries-row">
+              <h2 id="entries-heading">Entries</h2>
+              <a class="new-button entry-form" href="#">NEW</a>
+            </div>
           </div>
         </div>
         <ul class="entries-list"></ul>

@@ -80,6 +80,11 @@ li {
   padding: 0.5rem;
 }
 
+.save-button-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #entries-row {
   display: flex;
   justify-content: space-between;

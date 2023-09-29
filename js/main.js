@@ -22,13 +22,14 @@ $entryForm.addEventListener('submit', function (event) {
   $entryImage.src = './images/placeholder-image-square.jpg';
   $entryForm.reset();
   toggleNoEntries();
+  $entriesList.prepend(renderEntry(entry));
   viewSwap('entries');
 });
 
 function renderEntry(entry) {
   const $entry = document.createElement('li');
   $entry.setAttribute('class', 'entry');
-  $entry.setAttribute('data-entry-id', 'data.entries[i]entryId');
+  $entry.setAttribute('data-entry-id', 'data.entries[i].entryId');
 
   const $columnHalf = document.createElement('div');
   $columnHalf.setAttribute('class', 'column-half');
@@ -112,10 +113,15 @@ function handleEntryFormClick() {
   viewSwap('entry-form');
 }
 
+function handlePencilClick() {
+  if (event.target.className === 'fa-solid fa-pen') {
+    viewSwap('entry-form');
+  }
+}
+
 const $entriesLink = document.querySelector('.entries');
 $entriesLink.addEventListener('click', handleEntriesClick);
 const $newEntryForm = document.querySelector('.entry-form');
 $newEntryForm.addEventListener('click', handleEntryFormClick);
-
-// console.log(data.entries[1]);
-// console.log('entry', data.entries)
+const $pencilIcon = document.querySelector('.entry-form');
+$pencilIcon.addEventListener('click', handlePencilClick);

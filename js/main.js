@@ -1,12 +1,42 @@
+/* eslint-disable no-console */
 const $photoUrlInput = document.querySelector('#photo-url-input');
 const $entryImage = document.querySelector('#entry-image');
 const $entryForm = document.querySelector('#entry-form');
 const $notesText = document.querySelector('#notes-text');
 const $titleInput = document.querySelector('#title-input');
 const $entriesList = document.querySelector('.entries-list');
+const $entriesLink = document.querySelector('.entries');
+const $newEntryForm = document.querySelector('.entry-form');
+// let $entriesHeading = document.querySelector('#entries-heading');
+
+$newEntryForm.addEventListener('click', handleEntryFormClick);
+$entriesLink.addEventListener('click', handleEntriesClick);
 
 $photoUrlInput.addEventListener('input', function (event) {
   $entryImage.src = $photoUrlInput.value;
+});
+
+$entriesList.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    const $clickedEntry = event.target.closest('li');
+
+    for (let i = 0; i < data.entries.length; i++) {
+      if (
+        Number($clickedEntry.getAttribute('data-entry-id')) ===
+        data.entries[i].entryId
+      ) {
+        data.editing = data.entries[i];
+        viewSwap('entry-form');
+        console.log(data.editing);
+        $photoUrlInput.value = data.editing.photoUrl;
+        $titleInput.value = data.editing.title.value;
+        $notesText.value = data.editing.notesText.value;
+        // $entriesHeading = 'Edit Entry';
+      }
+      console.log(data.editing);
+      console.log($notesText.value, $titleInput.value);
+    }
+  }
 });
 
 $entryForm.addEventListener('submit', function (event) {
@@ -22,14 +52,13 @@ $entryForm.addEventListener('submit', function (event) {
   $entryImage.src = './images/placeholder-image-square.jpg';
   $entryForm.reset();
   toggleNoEntries();
-  $entriesList.prepend(renderEntry(entry));
   viewSwap('entries');
 });
 
 function renderEntry(entry) {
   const $entry = document.createElement('li');
   $entry.setAttribute('class', 'entry');
-  $entry.setAttribute('data-entry-id', 'data.entries[i].entryId');
+  $entry.setAttribute('data-entry-id', data.nextEntryId);
 
   const $columnHalf = document.createElement('div');
   $columnHalf.setAttribute('class', 'column-half');
@@ -112,16 +141,3 @@ function handleEntriesClick() {
 function handleEntryFormClick() {
   viewSwap('entry-form');
 }
-
-function handlePencilClick() {
-  if (event.target.className === 'fa-solid fa-pen') {
-    viewSwap('entry-form');
-  }
-}
-
-const $entriesLink = document.querySelector('.entries');
-$entriesLink.addEventListener('click', handleEntriesClick);
-const $newEntryForm = document.querySelector('.entry-form');
-$newEntryForm.addEventListener('click', handleEntryFormClick);
-const $pencilIcon = document.querySelector('.entry-form');
-$pencilIcon.addEventListener('click', handlePencilClick);

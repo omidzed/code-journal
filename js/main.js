@@ -97,10 +97,10 @@ function handleEntryFormSubmit(event) {
   } else if (data.editing !== null) {
     event.preventDefault();
     const editedEntry = {
+      entryId: data.editing.entryId,
       title: $titleInput.value,
       photoUrl: $photoUrlInput.value,
       notes: $notesText.value,
-      entryId: data.editing.entryId,
     };
 
     const $entriesListItems = document.querySelectorAll('li');

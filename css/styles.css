@@ -82,7 +82,8 @@ li {
 
 .save-button-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #entries-row {
@@ -166,4 +167,16 @@ i {
 
 .no-underline {
   text-decoration: none;
+}
+
+.delete-button {
+  color: red;
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+
+#delete-save-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

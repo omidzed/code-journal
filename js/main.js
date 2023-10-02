@@ -104,7 +104,7 @@ function handleEntryFormSubmit(event) {
     };
 
     const $entriesListItems = document.querySelectorAll('li');
-    for (let i = 0; i < $entriesList.length; i++) {
+    for (let i = 0; i < $entriesListItems.length; i++) {
       if (
         Number($entriesListItems[i].getAttribute('data-entry-id')) ===
         editedEntry.entryId

@@ -120,6 +120,8 @@ function handleEntryFormSubmit(event) {
     data.editing = null;
     $entryForm.reset();
   }
+  toggleNoEntries();
+  viewSwap('entries');
 }
 
 function pencilClickHandler(event) {

@@ -9,6 +9,7 @@ const $newEntryForm = document.querySelector('.entry-form');
 const views = document.querySelectorAll('.container.view');
 const $noEntriesText = document.querySelector('#no-entries-text');
 const $entriesHeading = document.querySelector('.new-entry-heading');
+const $deleteButton = document.querySelecto('.delete-button');
 
 function viewSwap(targetView) {
   for (let i = 0; i < views.length; i++) {
@@ -145,6 +146,8 @@ function pencilClickHandler(event) {
   }
 }
 
+function deleteButtonHandler(event) {}
+
 function handleEntriesClick() {
   $entryForm.reset();
   toggleNoEntries();
@@ -160,6 +163,7 @@ $entryForm.addEventListener('submit', handleEntryFormSubmit);
 $newEntryForm.addEventListener('click', handleEntryFormClick);
 $entriesLink.addEventListener('click', handleEntriesClick);
 $entriesList.addEventListener('click', pencilClickHandler);
+$deleteButton.addEventListener('click', deleteButtonHandler);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   toggleNoEntries();

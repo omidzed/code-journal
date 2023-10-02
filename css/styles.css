@@ -131,6 +131,7 @@ input {
 }
 
 body {
+  /* stylelint-disable-next-line string-quotes */
   font-family: 'Fira Sans', serif;
   background-color: rgb(240, 240, 240);
   height: 100vh;
@@ -160,7 +161,7 @@ i {
 .row-title-edit-button {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .no-underline {

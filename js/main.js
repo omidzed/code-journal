@@ -8,6 +8,7 @@ const $entriesLink = document.querySelector('.entries');
 const $newEntryForm = document.querySelector('.entry-form');
 const views = document.querySelectorAll('.container.view');
 const $noEntriesText = document.querySelector('#no-entries-text');
+const $entriesHeading = document.querySelector('.new-entry-heading');
 
 function viewSwap(targetView) {
   for (let i = 0; i < views.length; i++) {
@@ -79,31 +80,54 @@ function handlePhotoUrlInput(event) {
 }
 
 function handleEntryFormSubmit(event) {
-  event.preventDefault();
-  const entry = {
-    entryId: data.nextEntryId,
-    title: $titleInput.value,
-    photoUrl: $photoUrlInput.value,
-    notes: $notesText.value,
-  };
-  data.entries.unshift(entry);
-  data.nextEntryId++;
-  $entryImage.src = './images/placeholder-image-square.jpg';
-  $entryForm.reset();
-  toggleNoEntries();
-  viewSwap('entries');
+  if (data.editing === null) {
+    event.preventDefault();
+    const entry = {
+      entryId: data.nextEntryId,
+      title: $titleInput.value,
+      photoUrl: $photoUrlInput.value,
+      notes: $notesText.value,
+    };
+    data.entries.unshift(entry);
+    data.nextEntryId++;
+    $entryImage.src = './images/placeholder-image-square.jpg';
+    $entryForm.reset();
+    toggleNoEntries();
+    viewSwap('entries');
+  } else if (data.editing !== null) {
+    event.preventDefault();
+    const editedEntry = {
+      title: $titleInput.value,
+      photoUrl: $photoUrlInput.value,
+      notes: $notesText.value,
+      entryId: data.editing.entryId,
+    };
+
+    const $entriesListItems = document.querySelectorAll('li');
+    for (let i = 0; i < $entriesList.length; i++) {
+      if (
+        Number($entriesListItems[i].getAttribute('data-entry-id')) ===
+        editedEntry.entryId
+      ) {
+        $entriesList.replaceChild(
+          renderEntry(editedEntry),
+          $entriesListItems[i]
+        );
+        data.entries[i] = editedEntry;
+      }
+    }
+    $entriesHeading.textContent = 'New Entry';
+    data.editing = null;
+    $entryForm.reset();
+  }
 }
 
 function pencilClickHandler(event) {
   if (event.target.tagName === 'I') {
     const $clickedEntry = event.target.closest('li');
-    const $entriesHeading = document.querySelector('.new-entry-heading');
     viewSwap('entry-form');
     $entriesHeading.textContent = 'Edit Entry';
-    // eslint-disable-next-line no-console
-    console.log($clickedEntry);
-    // eslint-disable-next-line no-console
-    console.log(data.entries);
+
     for (let i = 0; i < data.entries.length; i++) {
       if (
         Number($clickedEntry.getAttribute('data-entry-id')) ===
@@ -136,10 +160,10 @@ $entriesLink.addEventListener('click', handleEntriesClick);
 $entriesList.addEventListener('click', pencilClickHandler);
 
 document.addEventListener('DOMContentLoaded', function (event) {
+  toggleNoEntries();
   for (let i = 0; i < data.entries.length; i++) {
     const entryItem = renderEntry(data.entries[i]);
     $entriesList.appendChild(entryItem);
   }
   viewSwap(data.view);
-  toggleNoEntries();
 });

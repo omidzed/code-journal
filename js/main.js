@@ -9,7 +9,10 @@ const $newEntryForm = document.querySelector('.entry-form');
 const views = document.querySelectorAll('.container.view');
 const $noEntriesText = document.querySelector('#no-entries-text');
 const $entriesHeading = document.querySelector('.new-entry-heading');
-const $deleteButton = document.querySelecto('.delete-button');
+const $deleteButton = document.querySelector('#delete-button');
+const $modal = document.querySelector('#delete-entry-modal');
+const $cancelButton = document.querySelector('#cancel-button');
+const $confirmButton = document.querySelector('#confirm-button');
 
 function viewSwap(targetView) {
   for (let i = 0; i < views.length; i++) {
@@ -81,22 +84,21 @@ function handlePhotoUrlInput(event) {
 }
 
 function handleEntryFormSubmit(event) {
+  const entry = {
+    entryId: data.nextEntryId,
+    title: $titleInput.value,
+    photoUrl: $photoUrlInput.value,
+    notes: $notesText.value,
+  };
   if (data.editing === null) {
     event.preventDefault();
-    const entry = {
-      entryId: data.nextEntryId,
-      title: $titleInput.value,
-      photoUrl: $photoUrlInput.value,
-      notes: $notesText.value,
-    };
     data.entries.unshift(entry);
-    data.nextEntryId++;
+    $entriesList.prepend(renderEntry(entry));
     $entryImage.src = './images/placeholder-image-square.jpg';
+    data.nextEntryId++;
     $entryForm.reset();
     toggleNoEntries();
-    viewSwap('entries');
-  } else if (data.editing !== null) {
-    event.preventDefault();
+  } else {
     const editedEntry = {
       entryId: data.editing.entryId,
       title: $titleInput.value,
@@ -119,9 +121,8 @@ function handleEntryFormSubmit(event) {
     }
     $entriesHeading.textContent = 'New Entry';
     data.editing = null;
-    $entryForm.reset();
   }
-  toggleNoEntries();
+  $entryForm.reset();
   viewSwap('entries');
 }
 
@@ -129,6 +130,7 @@ function pencilClickHandler(event) {
   if (event.target.tagName === 'I') {
     const $clickedEntry = event.target.closest('li');
     viewSwap('entry-form');
+    $deleteButton.classList.remove('hidden');
     $entriesHeading.textContent = 'Edit Entry';
 
     for (let i = 0; i < data.entries.length; i++) {
@@ -146,7 +148,12 @@ function pencilClickHandler(event) {
   }
 }
 
-function deleteButtonHandler(event) {}
+function deleteButtonHandler(event) {
+  $modal.classList.remove('hidden');
+}
+function cancelButtonHandler(event) {
+  $modal.classList.add('hidden');
+}
 
 function handleEntriesClick() {
   $entryForm.reset();
@@ -158,18 +165,46 @@ function handleEntryFormClick() {
   viewSwap('entry-form');
 }
 
+function confirmButtonHandler(event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+
+  const $entriesListItems = document.querySelectorAll('li');
+  for (let i = 0; $entriesListItems.length; i++) {
+    if (
+      data.editing.entryId ===
+      Number($entriesListItems[i].getAttribute('data-entry-id'))
+    ) {
+      $entriesListItems[i].remove();
+      break;
+    }
+  }
+
+  $modal.classList.add('class', 'hidden');
+  $entryImage.src = './images/placeholder-image-square.jpg';
+  $entriesHeading.textContent = 'Edit Entry';
+  $entryForm.reset();
+  toggleNoEntries();
+  viewSwap('entries');
+}
+
 $photoUrlInput.addEventListener('input', handlePhotoUrlInput);
 $entryForm.addEventListener('submit', handleEntryFormSubmit);
 $newEntryForm.addEventListener('click', handleEntryFormClick);
 $entriesLink.addEventListener('click', handleEntriesClick);
 $entriesList.addEventListener('click', pencilClickHandler);
 $deleteButton.addEventListener('click', deleteButtonHandler);
+$cancelButton.addEventListener('click', cancelButtonHandler);
+$confirmButton.addEventListener('click', confirmButtonHandler);
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  toggleNoEntries();
   for (let i = 0; i < data.entries.length; i++) {
     const entryItem = renderEntry(data.entries[i]);
     $entriesList.appendChild(entryItem);
   }
   viewSwap(data.view);
+  toggleNoEntries();
 });

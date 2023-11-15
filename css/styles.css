@@ -82,7 +82,8 @@ li {
 
 .save-button-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #entries-row {
@@ -166,4 +167,81 @@ i {
 
 .no-underline {
   text-decoration: none;
+}
+
+#delete-button,
+#delete-button:visited {
+  color: red;
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+
+#delete-save-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cancel-button {
+  background-color: rgb(182, 182, 182);
+  font-size: 0.8rem;
+  border-radius: 2px;
+  border-color: rgb(182, 182, 182);
+  border-style: none;
+  font-weight: 400;
+  padding: 0.4rem;
+}
+
+#confirm-button {
+  color: white;
+  background-color: red;
+  font-size: 0.8rem;
+  font-weight: 400;
+  border-radius: 2px;
+  border-color: red;
+  border-style: none;
+  padding: 0.4rem;
+}
+
+#delete-entry-modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-message-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  padding: 0.5rem;
+  background-color: white;
+  flex-wrap: nowrap;
+}
+
+.row-delete-message {
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.row-cancel-confirm {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.confirm {
+  display: flex;
+  justify-content: center;
+}
+
+.cancel {
+  display: flex;
+  justify-content: center;
 }

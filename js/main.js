@@ -107,7 +107,6 @@ function submitHandler(event) {
     event.preventDefault();
     const entry = {
       entryId: data.nextEntryId,
-      title: $title.value,
       notes: $notes.value,
       photoUrl: $photoUrl.value,
     };
@@ -122,11 +121,11 @@ function submitHandler(event) {
     event.preventDefault();
     const editedEntry = {
       entryId: data.editing.entryId,
-      title: $title.value,
       photoUrl: $photoUrl.value,
       notes: $notes.value,
     };
     const $listItems = document.querySelectorAll('li');
+    console.log('list of entries:', $listItems);
     for (let i = 0; i < $listItems.length; i++) {
       if (
         Number($listItems[i].getAttribute('data-entry-id')) ===

@@ -5,110 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Journal</title>
     <link rel="icon" href="images/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500&family=IBM+Plex+Sans:wght@200&family=Inclusive+Sans&family=Mooli&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;400&display=swap"
-      rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500&family=Proza+Libre:wght@400;700&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;400&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-
   <body>
-    <main class="main-container">
-      <header>
-        <div class="header-container container">
-          <div class="row" id="row-app-name">
-            <div class="column-half" id="app-header-column-half">
-              <p id="code-journal">Code Journal</p>
-              <a href="#" class="no-underline entries" id="entries-id"
-                >Entries</a
-              >
-            </div>
-          </div>
+    <header class="container">
+      <h1 id="code-journal">Code Journal</h1>
+      <a class="entries-anchor" href="#">Entries</a>
+    </header>
+
+    <main class="container">
+      <div data-view="entry-form" class="view-container">
+        <div class="row">
+          <h2 id="h2-new-entry">New Entry</h2>
         </div>
-      </header>
-      <div class="container view" data-view="entry-form">
-        <form id="entry-form">
-          <div class="row" id="new-entry-row">
-            <div class="column-half">
-              <h2 class="new-entry-heading">New Entry</h2>
-            </div>
-          </div>
+
+        <form class="new-entry-form">
           <div class="row">
             <div class="column-half">
               <img
-                id="entry-image"
+                id="photo-preview"
                 src="./images/placeholder-image-square.jpg"
-                alt="Place holder photo"
-                class="photo" />
+                alt="placeholder" />
             </div>
             <div class="column-half">
-              <div class="labels-edit-icons">
-                <label for="title-input">Title</label>
-              </div>
-
-              <input
-                required
-                autofocus
-                type="text"
-                name="title-input"
-                id="title-input" />
-              <div class="labels-edit-icons">
-                <label for="photo-url-input">Photo URL</label>
-              </div>
-              <input
-                required
-                autofocus
-                type="text"
-                name="photo-url-input"
-                id="photo-url-input" />
+              <label for="title">Title</label>
+              <input type="text" id="title" required />
+              <label for="photo-url">Photo URL</label>
+              <input type="url" id="photo-url" required />
             </div>
           </div>
           <div class="row">
             <div class="column-full">
-              <div class="labels-edit-icons">
-                <label for="notes-text">Notes</label>
-              </div>
-              <textarea
-                required
-                autofocus
-                name="notes"
-                rows="10"
-                id="notes-text"></textarea>
+              <label for="notes">Notes</label>
+              <textarea id="notes" rows="5" required></textarea>
             </div>
           </div>
-          <div class="save-button-row">
-            <div class="save-column-full">
-              <button class="save-button" type="submit">SAVE</button>
-            </div>
+          <div class="save container">
+            <button>SAVE</button>
           </div>
         </form>
       </div>
 
-      <div class="container view hidden" data-view="entries">
-        <p id="no-entries-text">No entries have been recorded.</p>
-        <div id="entries-container">
-          <div class="entries-row">
-            <div class="column-full" id="entries-row">
-              <h2 class="entries-heading">Entries</h2>
-              <a class="new-button entry-form" href="#">NEW</a>
-            </div>
-          </div>
+      <div data-view="entries" class="view-container">
+        <div class="row entries-new">
+          <h2>Entries</h2>
+          <a class="new-anchor" href="#">NEW</a>
         </div>
+        <p class="no-entries hidden">No entries have been recorded yet!</p>
         <ul class="entries-list"></ul>
       </div>
     </main>
